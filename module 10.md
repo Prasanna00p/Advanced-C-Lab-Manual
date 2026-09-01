@@ -1,252 +1,268 @@
-EXP NO:16 C PROGRAM TO SEARCH A GIVEN ELEMENT IN THE GIVEN LINKED LIST.
+
+
+EXP NO:21 C PROGRAM TO CREATE A FUNCTION TO FIND THE GREATEST NUMBER
 
 Aim:
-To write a C program to search a given element in the given linked list.
+To write a C program to create a function to find the greatest number
 
 Algorithm:
-1.	Define the structure for a node in a linked list.
-2.	Define the search function to find a specific character in the linked list.
-3.	Initialize the head of the linked list as needed.
-4.	Call the search function and perform other linked list operations as needed.
+1.	Include the necessary header #include <stdio.h>.
+2.	Use a series of if and else if statements to compare the values and return the maximum among them.
+3.	Declare variables n1, n2, n3, n4, and greater to store user input and the result.
+4.	Use scanf to take four integers as input.
+5.	Call the max_of_four function with the input integers and store the result in the greater variable
  
 Program:
 ```
-struct Node{
-    float data; 
-    struct Node *next;
-}*head;
-
-void search(float data)
+#include <stdio.h>
+int max_of_four(int a, int b, int c, int d)
 {
-    struct Node *current=head;
+    int max=a;
+    if(b>max)
+    {
+        max=b;
+    }
+    else if(c>max)
+    {
+        max=c;
+    }
+    else if(d>max)
+    {
+        max=d;
+    }
+    return max;
+}
+int main()
+{
+    int a,b,c,d;
+    scanf("%d%d%d%d",&a,&b,&c,&d);
+    printf("%d",max_of_four(a,b,c,d));
+    return 0;
+}
+```
+
+Output:
+<img width="330" height="330" alt="image" src="https://github.com/user-attachments/assets/f6263143-0c44-483a-b579-0e81f2c7f1f2" />
+
+
+Result:
+Thus, the program  that create a function to find the greatest number is verified successfully.
+
+
+ 
+EXP NO:22 C PROGRAM TO PRINT THE MAXIMUM VALUES FOR THE AND, OR AND  XOR COMPARISONS
+Aim:
+To write a C program to print the maximum values for the AND, OR and XOR comparisons
+
+Algorithm:
+1.	Define a function calculate_the_max that takes two integers n and k as parameters.
+2.	Declare variables a, o, and x to store the maximum values for AND, OR, and XOR operations, respectively.
+3.	Use nested loops to iterate through pairs of integers (i, j) from 1 to n.
+4.	Within the loops, check conditions for AND, OR, and XOR operations and update the corresponding maximum values (a, o, x).
+5.	Declare variables n and k to store user input.
+6.	Use scanf to take two integers as input.
+7.	Call the calculate_the_max function with input values.
+ 
+Program:
+```
+#include <stdio.h>
+void calculate_the_maximum(int n,int k)
+{
+    int max_and=0,max_or=0,max_xor=0;
+    for(int i=1;i<=n;i++)
+    {
+        for(int j=i+1;j<=n;j++)
+        {
+            int and_res=i&j;
+            int or_res=i|j;
+            int xor_res=i^j;
+            
+            if(and_res<k && and_res>max_and)
+            {
+                max_and=and_res;
+            }
+            if(or_res<k && or_res>max_or)
+            {
+                max_or=or_res;
+            }
+            if(xor_res<k && xor_res>max_xor)
+            {
+                max_xor=xor_res;
+            }
+        }
+        
+    }
+    printf("%d\n%d\n%d",max_and,max_or,max_xor);
+}
+int main()
+{
+    int n,k;
+    scanf("%d%d",&n,&k);
+    calculate_the_maximum(n,k);
+    return 0;
+}
+```
+Output:
+<img width="330" height="376" alt="image" src="https://github.com/user-attachments/assets/36b87d71-7fff-42a8-bb24-f860e93eb6a8" />
+
+
+Result:
+Thus, the program to print the maximum values for the AND, OR and XOR comparisons
+is verified successfully.
+
+
+ 
+EXP NO:23 C PROGRAM TO WRITE THE LOGIC FOR THE REQUESTS
+Aim:
+To write a C program to write the logic for the requests
+
+Algorithm:
+1.	Declare variables noshel and noque to store the number of shelves and the number of queries, respectively.
+2.	Use scanf to take two integers as input for the number of shelves and queries.
+3.	Declare a 2D array shelarr to represent shelves and books, and an array nobookarr to store the number of books on each shelf.
+4.	Declare variables k and c to keep track of the book index and the total number of books.
+5.	Use a for loop to iterate over the queries.
+ 
+Program:
+```
+#include<stdio.h>
+#define MAX_BOOKS_PER_SHELF 100
+int main()
+{
+    int n,m;
+    scanf("%d%d",&n,&m);
+    int shelfs[n][100];
+    int shelf_size[n];
+    for(int i=0;i<n;i++)
+    {
+        shelf_size[i]=0;
+    }
+    for(int i=0;i<m;i++)
+    {
+        int query;
+        scanf("%d",&query);
+        if(query==1)
+        {
+            int x,y;
+            scanf("%d%d",&x,&y);
+            shelfs[x][shelf_size[x]]=y;
+            shelf_size[x]++;
+        }
+        else if(query==2)
+        {
+            int x,y;
+            scanf("%d%d",&x,&y);
+            printf("%d\n",shelfs[x][y]);
+        }
+        else if (query==3)
+        {
+            int x;
+            scanf("%d",&x);
+            printf("%d\n",shelf_size[x]);
+        }
+    }
+    return 0;
+}
+```
+Output:
+<img width="335" height="267" alt="image" src="https://github.com/user-attachments/assets/5c6a6055-bd83-4584-bdb1-bec8e307aaf8" />
+
+
+
+Result:
+Thus, the program to write the logic for the requests is verified successfully.
+
+
+ 
+EXP NO:24 C PROGRAM PRINT THE SUM OF THE INTEGERS IN THE ARRAY.
+Aim:
+To write a C program print the sum of the integers in the array.
+
+Algorithm:
+1.	Declare a variable n to store the number of integers.
+2.	Use scanf to take an integer n as input.
+3.	Declare an array a of size n to store the integers.
+4.	Declare a variable sum and initialize it to zero.
+5.	Use a for loop to iterate n times:
+6.	Use scanf to input each integer and add it to the sum.
+7.	Print the final sum using printf.
+
+
+
+Program:
+```
+#include<stdio.h>
+int main()
+{
+    int n;
+    scanf("%d",&n);
+    int arr[n];
+    int sum=0;
+    for(int i=0;i<n;i++)
+    {
+        scanf("%d",&arr[i]);
+        sum+=arr[i];
+    }
+    printf("%d",sum);
+    
+    
+}
+```
+
+Output:
+<img width="832" height="208" alt="image" src="https://github.com/user-attachments/assets/b26f9647-07ac-4618-8c80-56cf1f5e127d" />
+
+
+Result:
+Thus, the program prints the sum of the integers in the array is verified successfully.
+
+
+ 
+EXP NO 25: C PROGRAM TO COUNT THE NUMBER OF WORDS IN A      SENTENCE
+
+
+
+Aim:
+
+To write a C program that counts the number of words in a given sentence.
+
+Algorithm:
+
+1.	Input the sentence: Take a sentence from the user.
+2.	Initialize a counter variable: This will keep track of the number of words.
+3.	Process each character of the sentence:
+o	Iterate through the sentence, checking each character.
+o	If a character is not a space, it may belong to a word. If it's the first non-space character after a space or at the start, increment the word count.
+4.	Handle spaces and punctuation: Skip over spaces, punctuation marks, and consider each word as a sequence of characters separated by spaces.
+5.	Display the result: After processing the sentence, output the total word count.
+
+
+
+Program:
+```
+#include<stdio.h>
+#include<string.h>
+int main()
+{
+    char str[100];
+    fgets(str,sizeof(str),stdin);
+    int len=sizeof(str);
     int count=1;
-    int flag=0;
-    while(current!=NULL)
-    {
-        if(current->data==data)
-        {
-            printf("item %.2f found at location %d",current->data,count);
-            flag++;
-        }
-        count++;
-        current=current->next;
-    }
-    if(flag==0)
-    {
-        printf("Item not found");
-    }
-}
-```
-Output:
-<img width="840" height="473" alt="image" src="https://github.com/user-attachments/assets/401b9535-a506-40fa-a2a5-fed5747e06ec" />
-
-Result:
-Thus, the program to search a given element in the given linked list is verified successfully.
-
-
- 
-EXP NO:17  PROGRAM TO INSERT A NODE IN A LINKED LIST.
-Aim:
-To write a C program to insert a node in a linked list.
-Algorithm:
-1.	Define the structure for a node in a linked list
-2.	Define the insert function to insert a new node with character data at the end of the linked list.
-3.	Initialize the head of the linked list as needed.
-4.	Call the insert function and perform other linked list operations as needed.
- 
-Program:
-
-```
-struct Node{
-    int data; 
-    struct Node *next;
-}*head;
-
-
-void insert(int data)
-{
-    struct Node *nnode;
-    nnode=(struct Node*)malloc(sizeof(struct Node));
-    nnode->data=data;
-    nnode->next=NULL;
-    
-    struct Node *current=head;
-    if(head==NULL)
-    {
-        head=nnode;
-        return;
-    }
-    while(current->next!=NULL)
-    {
-        current=current->next;
-    }
-    current->next=nnode;
-    
+     for(int i=0;i<len-1;i++){
+         if(str[i]==' ')
+         count++;
+         
+     }
+     printf("Total number of words in the string is :%d",count);
+    return 0;
 }
 ```
 
 Output:
-<img width="468" height="642" alt="image" src="https://github.com/user-attachments/assets/9cfb21b3-af9a-42d8-b87c-d1ce177a618b" />
-
-
- 
-Result:
-Thus, the program to insert a node in a linked list is verified successfully.
-
-
- 
-EXP NO:18 C PROGRAM TO TRAVERSE A DOUBLY LINKED LIST
-Aim:
-To write a C program to traverse a doubly linked list.
-
-Algorithm:
-1.	Initialize a temporary pointer (temp) to the head of the list.
-2.	Use a while loop to traverse the list until the end (temp == NULL) is reached.
-3.	Inside the loop, print the data of the current node.
-4.	Move to the next node by updating the temp pointer to point to the next node (temp = temp->next).
- 
-Program:
-```
-struct Node
-{
-    int data;
-    struct Node *prev;
-    struct Node *next;
-}*head;
-
-void display()
-{
-    struct Node *temp=head;
-    while(temp!=NULL)
-    {
-        printf("%d\n",temp->data);
-        temp=temp->next;
-    }
-}
-```
-Output:
-
-<img width="456" height="602" alt="image" src="https://github.com/user-attachments/assets/cc06424b-9b39-48af-aa7e-2c823c184799" />
+<img width="827" height="116" alt="image" src="https://github.com/user-attachments/assets/b16a1b1c-63a6-49a7-a8ae-e3b700778af5" />
 
 
 Result:
-Thus, the program to traverse a doubly linked list is verified successfully. 
 
-
-
-EXP NO:19 C PROGRAM TO INSERT AN ELEMENT IN DOUBLY LINKED LIST
-Aim:
-To write a C program to insert an element in doubly linked list
-
-Algorithm:
-1.	Create a new node (newNode) and allocate memory for it.
-2.	Set the data of the new node to the provided value.
-3.	If the list is empty, set the new node as the head.
-4.	If the list is not empty, traverse the list to find the last node.
-5.	Set the new node's prev pointer to the last node and update the last node's next pointer to the new node.
- 
-Program:
-```
-struct Node{
-    char data; 
-    struct Node *next;
-}*head;
-
-
-void insert(char data)
-{
-    struct Node *nnode;
-    nnode=(struct Node *)malloc(sizeof(struct Node));
-    nnode->data=data;
-    nnode->next=NULL;
-    
-    struct Node *current=head;
-    if(head==NULL)
-    {
-        head=nnode;
-    }
-    else
-    {
-        while(current->next!=NULL)
-        {
-            current=current->next;
-        }
-        current->next=nnode;
-    }
-    
-    
-}
-```
- 
-
-Output:
-<img width="482" height="577" alt="image" src="https://github.com/user-attachments/assets/3aa7c111-9e5c-4909-90ad-978ce55f1ff0" />
-
-
-
-Result:
-Thus, the program to insert an element in doubly linked list is verified successfully.
-
-
-
-
-EXP NO:20 C FUNCTION TO DELETE A GIVEN ELEMENT IN THE GIVEN LINKED LIST
-
-
-
-
-Aim:
-To write a C function that deletes a given element from a linked list.
-
-Algorithm:
-1.	Check if the Linked List is Empty:
-o	If the head of the linked list is NULL, print a message indicating the list is empty and exit the function.
-2.	Traverse the Linked List:
-o	Start from the head node and iterate through the list to find the node that contains the given element (data).
-3.	Handle Deletion of the First Node:
-o	If the element to be deleted is found in the head node:
-	Update the head of the linked list to point to the next node (i.e., head = head->next).
-	Free the memory allocated to the node to be deleted.
-	Exit the function.
-4.	Traverse and Delete from the Middle or End:
-o	If the element is not in the head node, continue traversing the list by checking each node’s next pointer.
-o	When the node with the element is found, update the previous node’s next pointer to point to the next node of the node to be deleted (prev->next = current->next).
-o	Free the memory allocated to the node to be deleted.
-5.	Handle the Case when the Element is Not Found:
-o	If the element is not found in any node, print a message indicating the element is not present in the list.
-6.	End the Function.
-
-
-Program:
-```
-struct Node{
-    int data; 
-    struct Node *prev;
-    struct Node *next;
-}*head;
-void delete()
-{
-    if(head!=0)
-    {
-        printf("node deleted\n");
-        head=head->next;
-    }
-    else
-    {
-        printf("UNDERFLOW\n");
-    }
-}
-```
-
-Output:
-
-<img width="590" height="792" alt="image" src="https://github.com/user-attachments/assets/dc5fac99-4c98-4910-8ae8-f3ff50232b3a" />
-
-
-Result:
-Thus, the function that deletes a given element from a linked list is verified successfully.
-
-
-
-
-
+Thus, the program that counts the number of words in a given sentence is verified 
+successfully.
